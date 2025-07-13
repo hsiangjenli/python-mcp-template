@@ -26,6 +26,8 @@ async def new_endpoint(request: NewEndpointRequest):
     return {"message": f"Hello, {request.name}!"}
 
 
+mcp.setup_server()
+
 if __name__ == "__main__":
     import uvicorn
 
