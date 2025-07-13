@@ -3,7 +3,7 @@
 ## 需求與待辦事項
 
 ### 開發環境
-- [ ] 建立 Dockerfile，方便部署與環境一致性
+- [x] 建立 Dockerfile，方便部署與環境一致性
 - [x] 使用 uv 管理 Python 版本與依賴
 - [ ] 整合 CI/CD（如 GitHub Actions）自動化流程
 - [x] 改用 rye 來 format python 程式
@@ -18,11 +18,28 @@
 - [ ] 快速建立單元測試（Unit Test），建議使用 pytest
 - [ ] 程式碼覆蓋率報告（如 coverage.py）
 
-## RUN
+## MCP Server 
+
+### Local Development
 
 ```bash
-uvicorn mcp_tools.main:app --reload
+uvicorn mcp_tools.main:app --host --port 8000 --reload
 ```
+
+### Docker
+
+```shell
+docker run --rm -d -p 8000:8000 python-mcp-template:latest
+```
+
+```json
+{
+  "mymcp": {
+    "type": "sse",
+    "url": "http://127.0.0.1:8000/mcp"
+    },
+},
+````
 
 ## Documentation
 
