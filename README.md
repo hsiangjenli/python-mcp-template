@@ -30,24 +30,15 @@
 
 ### Local Development
 
+- https://gofastmcp.com/patterns/cli
+
 ```bash
-uvicorn mcp_tools.main:app --host --port 8000 --reload
+uv run --with fastmcp fastmcp run mcp_tools/main.py
 ```
 
 ### Docker
 
-```shell
-docker run --rm -d -p 8000:8000 python-mcp-template:latest
-```
-
-```json
-{
-  "mymcp": {
-    "type": "sse",
-    "url": "http://127.0.0.1:8000/mcp"
-    },
-},
-````
+TODO
 
 ## Documentation
 
