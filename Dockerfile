@@ -8,4 +8,4 @@ COPY . /workspace/
 
 RUN uv pip install --system -e .
 
-CMD ["uvicorn", "mcp_tools.main:app"]
+CMD ["uvicorn", "mcp_tools.main:app", "--host", "0.0.0.0", "--port", "8000"]
