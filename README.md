@@ -26,34 +26,58 @@
 ### Improvements
 - [ ] 在 MCP Server 中使用 `docker run` 來啟動容器，免去手動啟動的麻煩
 
+
 ## MCP Server 
 
-### Local Development
+To inspect the MCP server, you can use inspector to see the tools available in the MCP server. You can use the following command to run the MCP inspector:
 
 ```bash
-uvicorn mcp_tools.main:app --host --port 8000 --reload
+uv run mcp dev mcp_tools/demo-stdio.py
 ```
+
+### stdio
+
+```bash
+uv run --with mcp mcp run mcp_tools/demo-stdio.py
+```
+
+- You won't see any output in the terminal, because it is using `stdio` mode
+
+![20250713222520](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20250713222520.png)
+
+### streamable-http
+
+```shell
+uv run mcp_tools/demo-streamable-http.py --mode streamable-http
+```
+
+- 127.0.0.1:8000/mcp
+
+![20250713222640](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20250713222640.png)
 
 ### Docker
 
-```shell
-docker run --rm -d -p 8000:8000 python-mcp-template:latest
-```
+#### streamable-http
+
 
 ```json
 {
-  "mymcp": {
-    "type": "sse",
-    "url": "http://127.0.0.1:8000/mcp"
-    },
-},
+  "mcpServers": {
+    "mymcp": {
+      "type": "http",
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-p",
+        "8000:8000",
+        "python-mcp-template:mcp-latest",
+        ]
+    }
+  }
+}
 ````
 
 ## Documentation
 
-```bash
-scripts/build_docs.sh
-mkdocs serve
-```
-
-![20250711222517](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20250711222517.png)
+TODO
