@@ -19,7 +19,7 @@
 
 ### 測試與文件
 - [x] 建立 Restful API，符合 MCP 標準
-- [x] 快速建立自動化文件（Documentation），如使用 Sphinx 或 MkDocs
+- [ ] 快速建立自動化文件（Documentation），如使用 Sphinx 或 MkDocs (Need to fix, due to `mcp_tools` not being a package, and schemas not being imported correctly)
 - [ ] 快速建立單元測試（Unit Test），建議使用 pytest
 - [ ] 程式碼覆蓋率報告（如 coverage.py）
 
@@ -38,7 +38,18 @@ uv run --with fastmcp fastmcp run mcp_tools/main.py
 
 ### Docker
 
-TODO
+```shell
+"mymcp": {
+    "type": "stdio",
+    "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "python-mcp-template:fastmcp-latest",
+        ],
+    }
+```
 
 ## Documentation
 
