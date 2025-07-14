@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastmcp import FastMCP
-from schemas import NewEndpointRequest, NewEndpointResponse
+from mcp_tools.schemas import NewEndpointRequest, NewEndpointResponse
 
 app = FastAPI(
     title="Python MCP Template",
