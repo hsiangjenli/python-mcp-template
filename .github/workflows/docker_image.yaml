@@ -6,6 +6,8 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    environment: 
+      name: GLOBAL     
     steps:
       -
         name: Checkout
