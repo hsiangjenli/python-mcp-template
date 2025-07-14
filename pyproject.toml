@@ -12,5 +12,8 @@ dependencies = [
     "fastmcp>=2.10.5",
 ]
 
+[tool.setuptools.packages.find]
+where = ["."]
+
 [tool.uv]
-packages = ["mcp_tools"]
+package = true
