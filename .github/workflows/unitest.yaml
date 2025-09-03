@@ -40,21 +40,7 @@ jobs:
 
       - name: Security scan (Bandit)
         run: |
-          set +e
-          bandit -r . -f txt -o bandit-report.txt
-          CODE=$?
-          echo "$CODE" > bandit_exit_code.txt
-          set -e
-          echo "## Bandit Security Scan" >> $GITHUB_STEP_SUMMARY
-          echo "Exit code: $CODE" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f bandit-report.txt ]; then
-            echo '```text' >> $GITHUB_STEP_SUMMARY
-            sed -e 's/\r$//' bandit-report.txt | tail -n +1 >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-          else
-            echo "No bandit report generated" >> $GITHUB_STEP_SUMMARY
-          fi
+          bash scripts/security_scan_bandit.sh
 
       - name: Upload artifacts (coverage and reports)
         if: always()
@@ -70,8 +56,4 @@ jobs:
 
       - name: Fail if Bandit found issues
         run: |
-          CODE=$(cat bandit_exit_code.txt || echo 0)
-          if [ "$CODE" -ne 0 ]; then
-            echo "Bandit found issues (exit $CODE). Failing the job."
-            exit $CODE
-          fi
+          bash scripts/security_fail_if_issues.sh
