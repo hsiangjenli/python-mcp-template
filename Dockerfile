@@ -11,10 +11,6 @@ ENV UV_PROJECT_ENVIRONMENT=/workspace/.venv \
     UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy
 
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --locked --no-dev
-
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --locked
+RUN uv sync --locked --no-dev
 
 CMD ["uv", "run", "--with", "fastmcp", "fastmcp", "run", "mcp_tools/main.py", "--transport", "stdio"]

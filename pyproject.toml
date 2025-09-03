@@ -19,3 +19,8 @@ where = ["."]
 
 [tool.uv]
 package = true
+dev-dependencies = [
+    "pytest",
+    "coverage",
+    "bandit",
+]
