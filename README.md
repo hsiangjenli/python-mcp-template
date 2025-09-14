@@ -22,14 +22,20 @@ This template leverages **fastmcp** and **FastAPI** to seamlessly integrate MCP 
 ### Local Development
 
 1. Install dependencies:
-   ```bash
-   uv sync
-   ```
+  ```bash
+  uv sync
+  ```
 
 2. Run the MCP server:
-   ```bash
-   uv run --with fastmcp fastmcp run mcp_tools/main.py
-   ```
+  ```bash
+  # stdio
+  uv run --with fastmcp fastmcp run mcp_tools/main.py
+  ```
+
+  ```bash
+  # http
+  uv run --with fastmcp fastmcp run mcp_tools/main.py --transport http
+  ```
 
 ### Docker
 
