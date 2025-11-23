@@ -49,6 +49,8 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="reference/endpoints/">Endpoints</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="reference/endpoints_swagger/">Swagger(neoteroi.mkdocsoad)</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="reference/models/">Data Models</a>
                   </li>
               </ul>
@@ -75,7 +77,83 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="index">Index</h1>
+                <div align="center">
+
+  <h1> Python MCP Template </h1>
+
+</div>
+
+<blockquote>
+<p>A DevOps-friendly template with CI/CD, Docker, and Documentation-as-Code (DaC) for building MCP server</p>
+</blockquote>
+<h2 id="core-idea">🚀 Core Idea</h2>
+<p>This template leverages <strong>fastmcp</strong> and <strong>FastAPI</strong> to seamlessly integrate MCP functionality while inheriting the original OpenAPI specifications.</p>
+<h2 id="features">🌟 Features</h2>
+<ul>
+<li><strong>CI/CD Integration</strong>: Automate your workflows with GitHub Actions.</li>
+<li><strong>Dockerized Environment</strong>: Consistent and portable development and production environments.</li>
+<li><strong>Documentation-as-Code</strong>: Automatically generate and deploy documentation using MkDocs. This process also utilizes the <code>openapi.json</code> file to ensure API documentation is up-to-date.</li>
+<li><strong>FastAPI Integration</strong>: Build robust APIs with OpenAPI support.</li>
+</ul>
+<h2 id="getting-started">🛠️ Getting Started</h2>
+<h3 id="local-development">Local Development</h3>
+<ol>
+<li>
+<p>Install dependencies:
+  <code>bash
+  uv sync</code></p>
+</li>
+<li>
+<p>Run the MCP server:
+  <code>bash
+  # stdio
+  uv run --with fastmcp fastmcp run mcp_tools/main.py</code></p>
+</li>
+</ol>
+<p><code>bash
+  # http
+  uv run --with fastmcp fastmcp run mcp_tools/main.py --transport http</code></p>
+<h3 id="docker">Docker</h3>
+<ol>
+<li>
+<p>Build the Docker image:
+   <code>bash
+   docker build -t python-mcp-template:latest .</code></p>
+</li>
+<li>
+<p>Run the container:
+   <code>bash
+   docker run -i --rm -p 8000:8000 python-mcp-template:latest</code></p>
+</li>
+<li>
+<p>Run MCP Server:
+  <code>json
+  {
+    "mcpServers": {
+      "python-mcp-template": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-p",
+          "8000:8000",
+          "python-mcp-template:latest"
+        ]
+      }
+    }
+  }</code></p>
+</li>
+</ol>
+<h2 id="documentation">📚 Documentation</h2>
+<ul>
+<li>Documentation is built using MkDocs and deployed to GitHub Pages.</li>
+<li>To build the documentation locally:</li>
+</ul>
+<p><code>bash
+  chmod +x scripts/build_docs.sh
+  scripts/build_docs.sh
+  mkdocs build</code></p>
               
             </div>
           </div><footer>
@@ -124,5 +202,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-07-14 14:09:32.184529+00:00
+Build Date UTC : 2025-11-23 18:19:02.767740+00:00
 -->
