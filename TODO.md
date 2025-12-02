@@ -6,7 +6,7 @@
 - [ ] Integrate CI/CD (e.g., GitHub Actions) for automation:
   - [x] Trigger: Tag push
   - [x] Build and push Docker image to Docker Hub
-  - [ ] Auto Changelog
+  - [x] Auto Changelog
   - [x] Automatically deploy GitHub Pages
 
 ## Code Quality
