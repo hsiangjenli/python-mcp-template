@@ -107,12 +107,17 @@
 <p>Run the MCP server:
   <code>bash
   # stdio
-  uv run --with fastmcp fastmcp run mcp_tools/main.py</code></p>
+  uv run fastmcp run mcp_tools/main.py</code></p>
 </li>
 </ol>
 <p><code>bash
-  # http
-  uv run --with fastmcp fastmcp run mcp_tools/main.py --transport http</code></p>
+  # HTTP (Due to CORS middleware conflicts, additional setup is required)
+  uv run uvicorn mcp_tools.main_http:starlette_app --host 127.0.0.1 --port 8000</code></p>
+<blockquote>
+<p><img alt="" src="https://github.com/user-attachments/assets/23339ea6-5888-493f-992d-bac6619457fc" />
+- https://gofastmcp.com/deployment/http
+- https://github.com/jlowin/fastmcp/issues/840</p>
+</blockquote>
 <h3 id="docker">Docker</h3>
 <ol>
 <li>
@@ -202,5 +207,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-11-23 18:19:02.767740+00:00
+Build Date UTC : 2025-12-02 08:00:10.784364+00:00
 -->
