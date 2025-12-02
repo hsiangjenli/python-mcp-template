@@ -3,7 +3,7 @@
 ## Development Environment
 - [x] Create a Dockerfile for consistent deployment and environment.
 - [x] Use `uv` to manage Python versions and dependencies.
-- [ ] Integrate CI/CD (e.g., GitHub Actions) for automation:
+- [x] Integrate CI/CD (e.g., GitHub Actions) for automation:
   - [x] Trigger: Tag push
   - [x] Build and push Docker image to Docker Hub
   - [x] Auto Changelog
@@ -11,7 +11,7 @@
 
 ## Code Quality
 - [x] API schema validation (pydantic).
-- [ ] Code security checks (e.g., bandit).
+- [x] Code security checks (e.g., bandit).
 
 ## Testing and Documentation
 - [x] Create a Restful API that complies with MCP standards.
