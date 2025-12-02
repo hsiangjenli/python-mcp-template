@@ -29,13 +29,17 @@ This template leverages **fastmcp** and **FastAPI** to seamlessly integrate MCP 
 2. Run the MCP server:
   ```bash
   # stdio
-  uv run --with fastmcp fastmcp run mcp_tools/main.py
+  uv run fastmcp run mcp_tools/main.py
   ```
 
   ```bash
-  # http
-  uv run --with fastmcp fastmcp run mcp_tools/main.py --transport http
+  # HTTP (Due to CORS middleware conflicts, additional setup is required)
+  uv run uvicorn mcp_tools.main_http:starlette_app --host 127.0.0.1 --port 8000
   ```
+
+  > ![](https://github.com/user-attachments/assets/23339ea6-5888-493f-992d-bac6619457fc)
+  > - https://gofastmcp.com/deployment/http
+  > - https://github.com/jlowin/fastmcp/issues/840
 
 ### Docker
 
