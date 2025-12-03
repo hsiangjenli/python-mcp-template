@@ -1,6 +1,6 @@
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
-EXPOSE 8000
+# EXPOSE 8000 (optional) # If your MCP is using http transport, uncomment this line to expose port 8000
 
 WORKDIR /workspace
 
