@@ -8,6 +8,7 @@
   - [x] Build and push Docker image to Docker Hub
   - [x] Auto Changelog
   - [x] Automatically deploy GitHub Pages
+  - [x] Automatically generate SBOM
 
 ## Code Quality
 - [x] API schema validation (pydantic).
@@ -18,6 +19,7 @@
 - [x] Automate documentation generation (e.g., Sphinx or MkDocs).
 - [ ] Automate unit tests (suggested: pytest).
 - [ ] Code coverage reports (e.g., coverage.py).
+- [ ] Add E2E tests using smolagent to validate AI Agent interactions with MCP tools
 
 ## Improvements
 - [x] Use `docker run` in MCP Server to simplify container startup.

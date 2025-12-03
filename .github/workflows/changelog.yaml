@@ -13,15 +13,26 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Checkout
+      -
+        name: Checkout
         uses: actions/checkout@v2
-      - name: Update CHANGELOG
+      -
+        name: Update CHANGELOG
         id: changelog
         uses: requarks/changelog-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
-      - name: Create Release
+      -
+        name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.9.14"
+      -
+        name: Export SBOM
+        run: uv export --format cyclonedx1.5 --output-file sbom.json
+      -
+        name: Create Release
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
@@ -29,7 +40,9 @@ jobs:
           name: ${{ github.ref_name }}
           body: ${{ steps.changelog.outputs.changes }}
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Commit CHANGELOG.md
+          artifacts: sbom.json
+      -
+        name: Commit CHANGELOG.md
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: main
