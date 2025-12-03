@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.2.0 (2025-12-03)
+
+### Feat
+
+- enhance changelog workflow and add SBOM generation
+- update uv.lock
+- add pre-commit configuration and code quality checks
+- add GitHub Actions workflow for automatic changelog and release
+
+### Fix
+
+- update Field examples in schemas.py for consistency
+
 ## [v1.1.0] - 2025-12-02
 ### :sparkles: New Features
 - [`a60efeb`](https://github.com/hsiangjenli/python-mcp-template/commit/a60efeb0fbefc366612c78a54690e7899c12bf84) - update README with new MCP server run commands and add main_http.py for HTTP support *(commit by [@hsiangjenli](https://github.com/hsiangjenli))*
